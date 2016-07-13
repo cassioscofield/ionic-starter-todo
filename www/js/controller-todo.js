@@ -7,6 +7,10 @@ angular.module('starter.controller.todo', [
   $ionicLoading.show();
   Todo.listar({}, function (error, data) {
     $ionicLoading.hide();
+    if (error) {
+      alert(error);
+      return;
+    }
     $scope.items = data;
   });
 
@@ -14,6 +18,9 @@ angular.module('starter.controller.todo', [
     $ionicLoading.show();
     Todo.adicionar(item, function(error, data) {
       $ionicLoading.hide();
+      if (error) {
+        alert(error);
+      }
     });
   };
 
@@ -21,6 +28,9 @@ angular.module('starter.controller.todo', [
     $ionicLoading.show();
     Todo.remover(item, function(error, data) {
       $ionicLoading.hide();
+      if (error) {
+        alert(error);
+      }
     });
   };
 
